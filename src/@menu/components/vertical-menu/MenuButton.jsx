@@ -47,7 +47,7 @@ export const menuButtonStyles = props => {
 
 const MenuButton = ({ className, children, ...rest }, ref) => {
   return rest.href ? (
-    <RouterLink ref={ref} className={className} href={rest.href} {...rest}>
+    <RouterLink ref={ref} className={className} href={rest.href || '/'} {...rest}>
       {children}
     </RouterLink>
   ) : (
