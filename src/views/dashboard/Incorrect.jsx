@@ -9,16 +9,16 @@ import Grid from '@mui/material/Grid'
 import OptionMenu from '@core/components/option-menu'
 import CustomAvatar from '@core/components/mui/Avatar'
 
-const Transactions = () => {
+const Incorrect = () => {
   return (
     <Card>
       <CardContent className='flex flex-col gap-2 relative items-start'>
         <div>
-          <Typography variant='h5'>Sales</Typography>
+          <Typography variant='h5'>Incorrect</Typography>
         </div>
         <div>
           <Typography variant='h4' color='primary'>
-            6
+            0
           </Typography>
         </div>
       </CardContent>
@@ -26,4 +26,4 @@ const Transactions = () => {
   )
 }
 
-export default Transactions
+export default Incorrect

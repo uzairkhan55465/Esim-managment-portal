@@ -21,8 +21,12 @@ const LogoText = styled.span`
 
 const Logo = ({ color }) => {
   return (
-    <div className='flex items-center min-bs-[24px]'>
+    <div
+      className='flex items-center min-bs-[24px]'
+      style={{ backgroundColor: 'lightgrey', padding: '12px 60px', borderRadius: '10px' }}
+    >
       <MaterioLogo className='text-[22px] text-primary' />
+      <br />
       <LogoText color={color}>{themeConfig.templateName}</LogoText>
     </div>
   )
