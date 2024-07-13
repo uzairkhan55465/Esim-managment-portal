@@ -32,6 +32,8 @@ import { useImageVariant } from '@core/hooks/useImageVariant'
 const Login = ({ mode }) => {
   // States
   const [isPasswordShown, setIsPasswordShown] = useState(false)
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
   // Vars
   const darkImg = '/images/pages/auth-v1-mask-dark.png'
@@ -44,7 +46,12 @@ const Login = ({ mode }) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    router.push('/')
+
+    if (username === 'admin' && password === 'admin') {
+      router.push('/admin')
+    } else {
+      router.push('/')
+    }
   }
 
   return (
@@ -56,16 +63,24 @@ const Login = ({ mode }) => {
           </Link>
           <div className='flex flex-col gap-5'>
             <div>
-              <Typography variant='h4'>{`Welcome to ${themeConfig.templateName}!👋🏻`}</Typography>
+              <Typography variant='h4'>{`Welcome to Esim GSM!👋🏻`}</Typography>
               <Typography className='mbs-1'>Please sign-in to your account and start the adventure</Typography>
             </div>
             <form noValidate autoComplete='off' onSubmit={handleSubmit} className='flex flex-col gap-5'>
-              <TextField autoFocus fullWidth label='Email' />
+              <TextField
+                autoFocus
+                fullWidth
+                label='Username'
+                value={username}
+                onChange={e => setUsername(e.target.value)}
+              />
               <TextField
                 fullWidth
                 label='Password'
                 id='outlined-adornment-password'
                 type={isPasswordShown ? 'text' : 'password'}
+                value={password}
+                onChange={e => setPassword(e.target.value)}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
